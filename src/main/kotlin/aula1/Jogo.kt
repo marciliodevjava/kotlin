@@ -1,3 +1,5 @@
+package aula1
+
 import com.ibm.jvm.trace.format.api.Message.Arg
 
 class Jogo() {
