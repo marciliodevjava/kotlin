@@ -1,5 +1,6 @@
 package aula2
 
+import com.google.gson.Gson
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -11,24 +12,15 @@ fun main() {
     val request = HttpRequest.newBuilder()
         .uri(URI.create("https://www.cheapshark.com/api/1.0/games?id=147"))
         .build()
-
     val response = client.send(request, BodyHandlers.ofString())
-
     val json = response.body()
 
     println(json)
 
-    val meuJogo = Jogo1(
-        "Batman: Arkham Asylum Game of the Year Edition",
-        "https:\\/\\/cdn.cloudflare.steamstatic.com\\/steam\\/apps\\/35140\\/capsule_sm_120.jpg?t=1681938587"
-    )
+    val gson = Gson()
 
-    val novoJogo = Jogo1(
-        capa = "https:\\/\\/cdn.cloudflare.steamstatic.com\\/steam\\/apps\\/43190\\/capsule_sm_120.jpg?t=1678983225",
-        titulo = "The Haunted: Hells Reach"
-    )
+    val meuInfoJogo = gson.fromJson(json, InfoJogo::class.java)
+    val meuJogo = Jogo1(meuInfoJogo.info.title, meuInfoJogo.info.thumb)
 
     println(meuJogo)
-    println("=========================================")
-    println(novoJogo)
 }
