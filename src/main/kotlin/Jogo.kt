@@ -1,6 +1,6 @@
 import com.ibm.jvm.trace.format.api.Message.Arg
 
-class Jogo {
+class Jogo() {
     var titulo = ""
     var capa = ""
     val descricao = ""
