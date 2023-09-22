@@ -1,6 +1,6 @@
 package aula2
 
-class Jogo1(val titulo:String, val capa:String) {
+data class Jogo1(val titulo: String, val capa: String) {
     val descricao = ""
 
     override fun toString(): String {
