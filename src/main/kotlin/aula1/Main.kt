@@ -1,3 +1,6 @@
+package aula1
+
+import aula1.Jogo
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
