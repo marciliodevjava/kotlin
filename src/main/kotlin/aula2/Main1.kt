@@ -1,12 +1,11 @@
 package aula2
 
 import com.google.gson.Gson
-import com.google.gson.JsonSyntaxException
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse.BodyHandlers
-import java.util.Scanner
+import java.util.*
 
 
 fun main() {
@@ -31,10 +30,7 @@ fun main() {
 
     val resultado = runCatching {
         val meuJogoInfo = gson.fromJson(json, InfoJogo::class.java)
-        meuJogo = Jogo1(
-            meuJogoInfo.info.title,
-            meuJogoInfo.info.thumb
-        )
+        meuJogo = Jogo1(meuJogoInfo.info.title, meuJogoInfo.info.thumb)
     }
 
     resultado.onFailure {
